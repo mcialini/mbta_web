@@ -5,7 +5,7 @@ defmodule MbtaWeb.DepartureController do
 
   def index(conn, _params) do
     departures = Repo.all(Departure)
-    render(conn, "index.html", departures: departures)
+    render(conn, "index.html", departures: departures, origin: 'all stations')
   end
 
   def new(conn, _params) do
@@ -26,9 +26,10 @@ defmodule MbtaWeb.DepartureController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    departure = Repo.get!(Departure, id)
-    render(conn, "show.html", departure: departure)
+  def show(conn, %{"origin" => origin}) do
+    departures = Repo.all(from d in Departure,
+                          where: d.origin == type(^origin, :string))
+    render(conn, "show.html", departures: departures, origin: origin)
   end
 
   def edit(conn, %{"id" => id}) do

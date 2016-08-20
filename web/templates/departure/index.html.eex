@@ -1,4 +1,4 @@
-<h2>Listing departures</h2>
+<h2>Departures</h2>
 
 <table class="table">
   <thead>
@@ -19,7 +19,9 @@
 <%= for departure <- @departures do %>
     <tr>
       <td><%= departure.timestamp %></td>
-      <td><%= departure.origin %></td>
+      <td>
+        <a href="origin/<%= departure.origin %>"><%= departure.origin %></a>
+      </td>
       <td><%= departure.trip %></td>
       <td class="wide"><%= departure.destination %></td>
       <td><%= departure.scheduled_time %></td>
