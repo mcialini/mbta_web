@@ -1,0 +1,6 @@
+<h2>New departure</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: departure_path(@conn, :create) %>
+
+<%= link "Back", to: departure_path(@conn, :index) %>

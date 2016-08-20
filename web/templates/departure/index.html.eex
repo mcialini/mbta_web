@@ -1,0 +1,33 @@
+<h2>Listing departures</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Origin</th>
+      <th>Trip</th>
+      <th class="wide">Destination</th>
+      <th>Scheduled time</th>
+      <th>Lateness</th>
+      <th>Track</th>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for departure <- @departures do %>
+    <tr>
+      <td><%= departure.timestamp %></td>
+      <td><%= departure.origin %></td>
+      <td><%= departure.trip %></td>
+      <td class="wide"><%= departure.destination %></td>
+      <td><%= departure.scheduled_time %></td>
+      <td><%= departure.lateness %></td>
+      <td><%= departure.track %></td>
+      <td><%= departure.status %></td>
+
+    </tr>
+<% end %>
+  </tbody>
+</table>

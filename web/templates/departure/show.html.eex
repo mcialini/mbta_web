@@ -1,0 +1,48 @@
+<h2>Show departure</h2>
+
+<ul>
+
+  <li>
+    <strong>Timestamp:</strong>
+    <%= @departure.timestamp %>
+  </li>
+
+  <li>
+    <strong>Origin:</strong>
+    <%= @departure.origin %>
+  </li>
+
+  <li>
+    <strong>Trip:</strong>
+    <%= @departure.trip %>
+  </li>
+
+  <li>
+    <strong>Destination:</strong>
+    <%= @departure.destination %>
+  </li>
+
+  <li>
+    <strong>Scheduled time:</strong>
+    <%= @departure.scheduled_time %>
+  </li>
+
+  <li>
+    <strong>Lateness:</strong>
+    <%= @departure.lateness %>
+  </li>
+
+  <li>
+    <strong>Track:</strong>
+    <%= @departure.track %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @departure.status %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: departure_path(@conn, :edit, @departure) %>
+<%= link "Back", to: departure_path(@conn, :index) %>
