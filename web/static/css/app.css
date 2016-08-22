@@ -13,13 +13,23 @@ main {
 @media (max-width:767px) {
 	main {
 		width:100%;
+		font-size:12px;
 	}
 }
 
-main > h2 {
+main > * {
 	text-align:center;
 }
 
-table .wide {
+#current_datetime {
+	text-align:center;
+}
+
+table {
+	text-align:left;
+}
+
+table .destination {
 	width:35%;
+	font-weight:bold;
 }

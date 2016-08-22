@@ -1,5 +1,6 @@
 <h2>Departures</h2>
 <p id="current_datetime"></p>
+<p><a href="admin">Modify Departures</a></p>
 <script>
 function startTime() {
     var today = new Date();
