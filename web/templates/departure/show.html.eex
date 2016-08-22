@@ -45,4 +45,4 @@
 </ul>
 
 <%= link "Edit", to: departure_path(@conn, :edit, @departure) %>
-<%= link "Back", to: departure_path(@conn, :index) %>
+<%= link "Back", to: departure_path(@conn, :admin) %>

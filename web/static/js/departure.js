@@ -1,4 +1,5 @@
 import socket from "./socket"
+import $ from "jquery"
 
 let unix_to_date = function(ts) {
   // For formatting dates.
@@ -15,9 +16,9 @@ export var Departure = {
       departure.track = "TBD";
     }
     let row = '<tr>' +
-              '<td><a href="origin/' + departure.origin + '">' + departure.origin + '</a></td>' +
+              '<td>' + departure.origin + '</td>' +
               '<td>' + departure.trip + '</td>' +
-              '<td class="wide">' + departure.destination + '</td>' +
+              '<td class="destination">' + departure.destination + '</td>' +
               '<td>' + unix_to_date(departure.scheduled_time) + '</td>' +
               '<td>' + departure.track + '</td>' +
               '<td>' + departure.status + '</td>' +
@@ -27,18 +28,21 @@ export var Departure = {
 }
 
 $(function() {
+  console.log('in')
   if (window.location.pathname == "/") {
     let tb = $("#departures")
     if (tb.length) {
       var topic = "departure:lobby"
       // Join the topic
       let channel = socket.channel(topic, {})
+      console.log('joining')
       channel.join()
         .receive("ok", data => {
           console.log("Joined topic", topic)
           tb.empty()
           for (var d in data.departures) {
             Departure.add(tb, data.departures[d])
+            console.log('added ' + d)
           }
         })
         .receive("error", resp => {

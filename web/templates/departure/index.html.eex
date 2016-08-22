@@ -3,12 +3,15 @@
 <script>
 function startTime() {
     var today = new Date();
+    var y = today.getFullYear();
+    var mo = today.getMonth() + 1;
+    var d = today.getDate();
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('current_time').innerHTML = h + ":" + m + ":" + s;
+    document.getElementById('current_datetime').innerHTML = mo + '-' + d + '-' + y + ' ' + h + ":" + m + ":" + s;
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
@@ -22,7 +25,7 @@ startTime();
     <tr>
       <th>Origin</th>
       <th>Trip</th>
-      <th class="wide">Destination</th>
+      <th class="destination">Destination</th>
       <th>Scheduled time</th>
       <th>Track</th>
       <th>Status</th>

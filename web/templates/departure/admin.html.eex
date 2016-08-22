@@ -16,9 +16,7 @@
   <tbody id="departures">
 <%= for departure <- @departures do %>
     <tr>
-      <td>
-        <a href="origin/<%= departure.origin %>"><%= departure.origin %></a>
-      </td>
+      <td><%= departure.origin %></td>
       <td><%= departure.trip %></td>
       <td><%= departure.destination %></td>
       <td><%= departure.scheduled_time %></td>
