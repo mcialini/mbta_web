@@ -1,20 +1,17 @@
-# MbtaWeb
+# MBTA Departure Board
 
-To start your Phoenix app:
+Simple Phoenix Application which stores departure information in PostgreSQL and uses PubSub channels to update information in real time.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+To run:
+  * Phoenix assumes that our PostgreSQL database will have a postgres user account with the correct permissions and a password of "postgres".
+  * mix ecto.create
+  * mix ecto.migrate
+  * mix run priv/repo/seeds.exs
+  * mix phoenix.server
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Endpoints:
+  * GET /: show departure board with live updates
+  * GET /admin: show departure board with options to edit departures. Editing a departure should be reflected on main page immediately.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
-## Learn more
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix

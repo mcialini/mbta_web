@@ -1,0 +1,38 @@
+<h2>Edit Departures</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Origin</th>
+      <th>Trip</th>
+      <th>Destination</th>
+      <th>Scheduled time</th>
+      <th>Lateness</th>
+      <th>Track</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="departures">
+<%= for departure <- @departures do %>
+    <tr>
+      <td>
+        <a href="origin/<%= departure.origin %>"><%= departure.origin %></a>
+      </td>
+      <td><%= departure.trip %></td>
+      <td><%= departure.destination %></td>
+      <td><%= departure.scheduled_time %></td>
+      <td><%= departure.lateness %></td>
+      <td><%= departure.track %></td>
+      <td><%= departure.status %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: departure_path(@conn, :show, departure), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: departure_path(@conn, :edit, departure), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: departure_path(@conn, :delete, departure), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-default btn-xs" %>
+      </td>
+
+    </tr>
+<% end %>
+  </tbody>
+</table>

@@ -1,32 +1,48 @@
-<h2>Departures from <%= @origin %></h2>
-<a href="/">View All</a>
+<h2>Show departure</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Timestamp</th>
-      <th>Trip</th>
-      <th class="wide">Destination</th>
-      <th>Scheduled time</th>
-      <th>Lateness</th>
-      <th>Track</th>
-      <th>Status</th>
+<ul>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for departure <- @departures do %>
-    <tr>
-      <td><%= departure.timestamp %></td>
-      <td><%= departure.trip %></td>
-      <td class="wide"><%= departure.destination %></td>
-      <td><%= departure.scheduled_time %></td>
-      <td><%= departure.lateness %></td>
-      <td><%= departure.track %></td>
-      <td><%= departure.status %></td>
+  <li>
+    <strong>Timestamp:</strong>
+    <%= @departure.timestamp %>
+  </li>
 
-    </tr>
-<% end %>
-  </tbody>
-</table>
+  <li>
+    <strong>Origin:</strong>
+    <%= @departure.origin %>
+  </li>
+
+  <li>
+    <strong>Trip:</strong>
+    <%= @departure.trip %>
+  </li>
+
+  <li>
+    <strong>Destination:</strong>
+    <%= @departure.destination %>
+  </li>
+
+  <li>
+    <strong>Scheduled time:</strong>
+    <%= @departure.scheduled_time %>
+  </li>
+
+  <li>
+    <strong>Lateness:</strong>
+    <%= @departure.lateness %>
+  </li>
+
+  <li>
+    <strong>Track:</strong>
+    <%= @departure.track %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @departure.status %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: departure_path(@conn, :edit, @departure) %>
+<%= link "Back", to: departure_path(@conn, :index) %>

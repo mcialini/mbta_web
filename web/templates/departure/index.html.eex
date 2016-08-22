@@ -1,35 +1,37 @@
 <h2>Departures</h2>
-
+<p id="current_datetime"></p>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('current_time').innerHTML = h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+startTime();
+</script>
 <table class="table">
   <thead>
     <tr>
-      <th>Timestamp</th>
       <th>Origin</th>
       <th>Trip</th>
       <th class="wide">Destination</th>
       <th>Scheduled time</th>
-      <th>Lateness</th>
       <th>Track</th>
       <th>Status</th>
 
       <th></th>
     </tr>
   </thead>
-  <tbody>
-<%= for departure <- @departures do %>
-    <tr>
-      <td><%= departure.timestamp %></td>
-      <td>
-        <a href="origin/<%= departure.origin %>"><%= departure.origin %></a>
-      </td>
-      <td><%= departure.trip %></td>
-      <td class="wide"><%= departure.destination %></td>
-      <td><%= departure.scheduled_time %></td>
-      <td><%= departure.lateness %></td>
-      <td><%= departure.track %></td>
-      <td><%= departure.status %></td>
-
-    </tr>
-<% end %>
+  <tbody id="departures">
+    <!-- This will be loaded dynamically by ../../static/js/departure.js -->
   </tbody>
 </table>
+

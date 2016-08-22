@@ -17,6 +17,8 @@ defmodule MbtaWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", DepartureController, :index
+    get "/admin", DepartureController, :admin
+    resources "/departures", DepartureController
     get "/origin/:origin", DepartureController, :index_origin
   end
 
