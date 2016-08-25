@@ -11,6 +11,7 @@ To run:
 
 Endpoints:
   * GET /: show departure board with live updates
+  * GET /origin/:origin: show departure board for particular Origin with live updates
   * GET /admin: show departure board with options to edit departures. Editing a departure should be reflected on main page immediately.
 
 
