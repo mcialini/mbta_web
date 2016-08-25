@@ -7,15 +7,13 @@ defmodule MbtaWeb.DepartureController do
     render(conn, "index.html")
   end
 
+  def index_origin(conn, %{"origin" => origin}) do
+    render(conn, "origin.html", origin: origin)
+  end
+
   def admin(conn, _params) do
     departures = Repo.all(Departure)
     render(conn, "admin.html", departures: departures)
-  end
-
-  def index_origin(conn, %{"origin" => origin}) do
-    departures = Repo.all(from d in Departure,
-                          where: d.origin == type(^origin, :string))
-    render(conn, "show.html", departures: departures, origin: origin)
   end
 
   def new(conn, _params) do
@@ -53,7 +51,7 @@ defmodule MbtaWeb.DepartureController do
 
     case Repo.update(changeset) do
       {:ok, departure} ->
-        MbtaWeb.DepartureChannel.broadcast_departure_feed()
+        MbtaWeb.DepartureChannel.broadcast_departure_feeds(departure.origin)
 
         conn
         |> put_flash(:info, "Departure updated successfully.")

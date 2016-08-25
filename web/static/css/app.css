@@ -17,7 +17,7 @@ main {
 	}
 }
 
-main > * {
+header {
 	text-align:center;
 }
 

@@ -1,5 +1,7 @@
-<h2>Edit Departures</h2>
-
+<header>
+  <h2>Edit Departures</h2>
+  <p><a href="/">Back to Home Page</a></p>
+</header>
 <table class="table">
   <thead>
     <tr>

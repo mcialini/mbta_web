@@ -3,6 +3,7 @@ defmodule MbtaWeb.UserSocket do
 
   ## Channels
   channel "departure:lobby", MbtaWeb.DepartureChannel
+  channel "departure:*", MbtaWeb.DepartureChannel
   # channel "room:*", MbtaWeb.RoomChannel
 
   ## Transports

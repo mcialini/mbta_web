@@ -18,8 +18,8 @@ defmodule MbtaWeb.Router do
 
     get "/", DepartureController, :index
     get "/admin", DepartureController, :admin
-    resources "/departures", DepartureController
     get "/origin/:origin", DepartureController, :index_origin
+    resources "/departures", DepartureController
   end
 
   # Other scopes may use custom stacks.

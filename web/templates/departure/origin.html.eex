@@ -1,7 +1,8 @@
 <header>
-  <h2>Departures</h2>
+  <h2>Departures from <%= @origin %></h2>
   <p id="current_datetime"></p>
-  <p><a href="admin">Modify Departures</a></p>
+  <p><a href="/">View All</a></p>
+  <p><a href="/admin">Modify Departures</a></p>
 </header>
 <table class="table">
   <thead>
@@ -12,11 +13,10 @@
       <th>Scheduled time</th>
       <th>Track</th>
       <th>Status</th>
-
       <th></th>
     </tr>
   </thead>
-  <tbody id="departures" data-js-topic-name="departure:lobby">
+  <tbody id="departures" data-js-topic-name="departure:<%= @origin %>">
   </tbody>
 </table>
 
